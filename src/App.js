@@ -49,13 +49,13 @@ function App() {
   ))
 
   return (
-    <div className='bg-blue-700 min-h-screen'>
+    <div className='bg-blue-700 min-h-screen mx-auto'>
       <div className='container mx-auto p-5'>
         <div className="max-w-md container mx-auto">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png" />
         </div>
         <PokemonSearch searchText={(text) => setFilter(text)}/>
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-6 mx-auto'>
           {isLoading ? <h1 className="col-span-4 text-[70px] text-white">Fetching Pokemon, please wait!</h1> : pokemonCards}
         </div>
       </div>
