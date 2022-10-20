@@ -15,7 +15,9 @@ function App() {
         promises.push(
           fetch(url)
           .then((res) => res.json()));
+        console.log(promises)
     }
+    console.log(promises)
     Promise.all(promises)
       .then((results) => {
         const pokemons = results.map((result) => ({
@@ -55,7 +57,7 @@ function App() {
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/2560px-International_Pok%C3%A9mon_logo.svg.png" />
         </div>
         <PokemonSearch searchText={(text) => setFilter(text)}/>
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-6 mx-auto'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-6 mx-auto'>
           {isLoading ? <h1 className="col-span-4 text-[70px] text-white">Fetching Pokemon, please wait!</h1> : pokemonCards}
         </div>
       </div>
