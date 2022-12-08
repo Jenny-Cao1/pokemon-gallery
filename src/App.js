@@ -15,9 +15,7 @@ function App() {
         promises.push(
           fetch(url)
           .then((res) => res.json()));
-        console.log(promises)
     }
-    console.log(promises)
     Promise.all(promises)
       .then((results) => {
         const pokemons = results.map((result) => ({
