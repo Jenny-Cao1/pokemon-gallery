@@ -34,9 +34,8 @@ const Details = ( {pokemons} ) => {
             <div className='container mx-auto p-5 rounded shadow-lg bg-blue-100	'>
                 <div className='grid grid-flow-row sm:grid-flow-col gap-3 sm:grid-cols-1 md:grid-cols-6 lg:grid-cols-6 gap-6 md:gap-6 mx-auto'>
                     <div className="sm:col-span-1 md:col-span-2 bg-slate-500">
-                        { !selectedPokemon.name 
-                            ? <h1>{selectedPokemon.name}</h1> 
-                            : <PokemonCard 
+                        { selectedPokemon.name &&
+                            <PokemonCard 
                                 key={selectedPokemon.id}
                                 id={selectedPokemon.id}
                                 name={selectedPokemon.name}
