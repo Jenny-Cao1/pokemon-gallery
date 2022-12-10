@@ -3,37 +3,38 @@ import PokemonCard from '../components/PokemonCard';
 import PokemonSearch from '../components/PokemonSearch';
 import React, { useState, useEffect } from 'react'
 
-const Home = () => {
-    const [pokemons, setPokemons] = useState([]);
+const Home = ({pokemons, isLoading}) => {
+    // const [pokemons, setPokemons] = useState([]);
     const [filter, setFilter] = useState("");
-    const [isLoading, setLoading] = useState(true)
+    // const [isLoading, setLoading] = useState(true)
 
-    const fetchPokemon = () => {
-    const promises = [];
-    for (let i = 1; i <= 151; i++) {
-        const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
-        promises.push(
-            fetch(url)
-            .then((res) => res.json()));
-    }
-    Promise.all(promises)
-        .then((results) => {
-        const pokemons = results.map((result) => ({
-            name: result.name,
-            image: result.sprites['front_default'],
-            type: result.types.map((type) => type.type.name),
-            weight: result.weight,
-            height: result.height,
-            id: result.id
-        }));
-        setPokemons(pokemons);
-        setLoading(false);
-    });
-    };
+    // const fetchPokemon = () => {
+    //     const promises = [];
+    //     for (let i = 1; i <= 151; i++) {
+    //         const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+    //         promises.push(
+    //             fetch(url)
+    //             .then((res) => res.json()));
+    //     }
+    //     Promise.all(promises)
+    //         .then((results) => {
+    //         const pokemons = results.map((result) => ({
+    //             name: result.name,
+    //             image: result.sprites['front_default'],
+    //             type: result.types.map((type) => type.type.name),
+    //             weight: result.weight,
+    //             height: result.height,
+    //             id: result.id
+    //         }));
+    //         setPokemons(pokemons);
+    //         setLoading(false);
+    //     });
+    // };
 
-    useEffect(() => {
-    fetchPokemon();
-    }, []);
+    // useEffect(() => {
+    //     fetchPokemon();
+    // }, []);
+
 
     const pokemonCards = pokemons.map(pokemon => (
     pokemon.name.includes(filter.toLowerCase()) &&

@@ -1,10 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const PokemonCard = ({ name, type, image, weight, height}) => {
+    let { id } = useParams();
+
+    const handleClick = () => {
+        console.log('id',id)
+    }
     return(
         <div className='rounded overflow-hidden shadow-lg p-4 bg-gray-700 hover:scale-105 hover:shadow-lg'>
-            <Link to={`/details/${name}`}>
+            <Link to={`/details/${name}`} state={{SelectedPokemon: name}} >
                 <h1 className='text-center font-bold tracking-wide bg-gray-200 py-2 '>{name.charAt(0).toUpperCase()+name.slice(1)}</h1>
                 <img src={image}
                 alt=""
